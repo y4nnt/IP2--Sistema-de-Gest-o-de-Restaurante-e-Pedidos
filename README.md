@@ -1,1 +1,0 @@
-# IP2--Sistema-de-Gest-o-de-Restaurante-e-Pedidos
