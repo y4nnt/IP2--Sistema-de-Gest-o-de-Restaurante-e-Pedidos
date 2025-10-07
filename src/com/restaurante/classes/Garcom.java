@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Garcom extends Usuario{
-    private List<String> habilidadesGarcom;
+    private List<String> qualidadesGarcom;
 
     Garcom(String nomeUsuario, String cpf, String email, String telefone) {
         super(nomeUsuario, cpf, email, telefone);
-        this.habilidadesGarcom = new ArrayList<>();
+        this.qualidadesGarcom = new ArrayList<>();
     }
 
     public void addHabilidadesGarcom (String habilidade){
-        habilidadesGarcom.add(habilidade);
+        qualidadesGarcom.add(habilidade);
     }
 
     public void removerHabilidadesGarcom (String habilidade){
-        habilidadesGarcom.remove(habilidade);
+        qualidadesGarcom.remove(habilidade);
     }
 
     @Override
@@ -25,9 +25,9 @@ public class Garcom extends Usuario{
         sb.append(String.format("Tipo: %-20s \n",
                 this.getClass()));
         sb.append("Habilidades: ");
-        for (String habilidade : habilidadesGarcom) {
+        for (String habilidade : qualidadesGarcom) {
             sb.append(String.format("-%s; ", habilidade));}
 
-        return super.toString() + sb.toString();
+        return super.toString() + this.toString();
     }
 }
