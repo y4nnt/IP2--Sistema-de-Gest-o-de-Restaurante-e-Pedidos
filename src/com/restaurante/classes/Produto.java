@@ -1,5 +1,7 @@
 package com.restaurante.classes;
 
+import java.time.format.DateTimeFormatter;
+
 public class Produto {
     private String nomeProduto;
     private String descricaoProduto;
@@ -90,24 +92,24 @@ public class Produto {
 
     // Retorna uma String no formato de linha à linha, necessitando de um sout para mostrar
     public String toString(){
-        return String.format(
-                "Produto {\n" +
-                        "Codigo: %s\n" +
-                        "Nome: %s\n" +
-                        "Descrição: %s\n" +
-                        "Preço: R$%.2f\n" +
-                        "Categoria: %s\n" +
-                        "Status: %b\n" +
-                        "Numero de vendas: %d\n" +
-                "}\n",
-                this.codigoItem,
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(String.format("Nome: %-15s | Código: %-15s | Preço: %-15s\n",
                 this.nomeProduto,
-                this.descricaoProduto,
-                this.precoProduto,
+                this.codigoItem,
+                this.precoProduto));
+        sb.append(String.format("Descrição: %s",
+                this.descricaoProduto));
+        sb.append(String.format("Categoria: %-15s | Número de vendas: %-15s | Status: ",
                 this.categoriaProduto,
-                this.statusItem,
-                this.numeroVendas
-        );
+                this.numeroVendas));
+        if (this.statusItem) {
+            sb.append(String.format("Disponível\n"));
+        } else {
+            sb.append(String.format("Indisponível\n"));
+        }
+
+        return sb.toString();
     }
 
     @Override

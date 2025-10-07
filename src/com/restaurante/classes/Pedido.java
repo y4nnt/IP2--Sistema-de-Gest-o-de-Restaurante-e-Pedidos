@@ -1,11 +1,14 @@
 package com.restaurante.classes;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
     private ClienteMesa clienteMesa;
+    private Garcom garcomPedido;
+    private Chef chefPedido;
     private List<ItemVenda> pedidoMesa;
     private int statusPedido;
     private LocalDate dataPedido;
@@ -62,13 +65,22 @@ public class Pedido {
     }
     @Override
     public String toString() {
-        return "Pedido {" +
-                "clienteMesa=" + clienteMesa +
-                ", itens=" + pedidoMesa +
-                ", statusPedido=" + statusPedido +
-                ", dataPedido=" + dataPedido +
-                ", valorTotal=" + calcularValorTotal() +
-                '}';
+        StringBuilder sb = new StringBuilder();
+
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String dataHoraFormatada = this.dataPedido.format(formatador);
+
+        sb.append(String.format("Data: %s\n", dataHoraFormatada));
+        sb.append(String.format("Cliente: %-15s | CPF: %-15s | Telefone: %-15s\n",
+                this.clienteMesa.getClientePedido().getNomeUsuario(),
+                this.clienteMesa.getClientePedido().getCpf(),
+                this.clienteMesa.getClientePedido().formatarTelefone()));
+        sb.append(String.format("Mesa: %-15s | Capacidade: %-15s\n"),
+                this.clienteMesa.getMesaPedido().getNumeroMesa(),
+                this.clienteMesa.getMesaPedido().getCapacidadeMesa());
+        sb.append(String.format("Total: R$ " + this.calcularValorTotal()));
+
+        return sb.toString();
     }
 
 }

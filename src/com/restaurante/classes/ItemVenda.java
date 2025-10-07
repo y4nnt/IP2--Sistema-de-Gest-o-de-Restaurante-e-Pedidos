@@ -34,4 +34,8 @@ public class ItemVenda {
     public double calcularTotal(){
         return this.produtoVendido.getPrecoProduto() * this.quantidade;
     }
+
+    public String toString(){
+        return this.produtoVendido.toString() + "Quantidade: " + this.quantidade;
+    }
 }
