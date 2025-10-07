@@ -17,7 +17,7 @@ public class Mesa {
         return numeroMesa;
     }
 
-    private void setNumeroMesa(int numeroMesa) {
+    public void setNumeroMesa(int numeroMesa) {
         if (numeroMesa <= 0) {
             throw new IllegalArgumentException("O número da mesa deve ser maior que zero.");
         } else if(numeroMesa != this.numeroMesa) {

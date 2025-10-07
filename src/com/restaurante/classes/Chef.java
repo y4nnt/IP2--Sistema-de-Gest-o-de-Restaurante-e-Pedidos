@@ -19,7 +19,7 @@ public class Chef extends Usuario {
         pratoEspecialidades.remove(prato);
     }
 
-    @Override
+
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("Tipo: %-20s \n",

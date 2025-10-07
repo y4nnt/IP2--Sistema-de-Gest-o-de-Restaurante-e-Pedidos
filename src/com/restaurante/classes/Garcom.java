@@ -24,9 +24,10 @@ public class Garcom extends Usuario{
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("Tipo: %-20s \n",
                 this.getClass()));
-        sb.append(String.format("Habilidades: "));
+        sb.append("Habilidades: ");
         for (String habilidade : habilidadesGarcom) {
             sb.append(String.format("-%s; ", habilidade));}
+
         return super.toString() + sb.toString();
     }
 }

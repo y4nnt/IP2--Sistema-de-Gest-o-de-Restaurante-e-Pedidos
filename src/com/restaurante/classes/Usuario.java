@@ -66,6 +66,7 @@ public abstract class Usuario {
         this.telefone = telefone;
     }
 
+    @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("Usuário: %-20s | CPF: %-20s | Telefone: %-20s\n",

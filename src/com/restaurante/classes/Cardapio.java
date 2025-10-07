@@ -1,6 +1,8 @@
 package com.restaurante.classes;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Cardapio {
     private List<Produto> cardapioRestaurante;
@@ -46,4 +48,51 @@ public class Cardapio {
         }
     }
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Cardápio\n\n");
+        sb.append("Entradas: \n");
+        for (Produto entrada : cardapioRestaurante) {
+            if (Objects.equals(cardapioRestaurante.get(buscarItem(entrada.getCodigoItem())).getCategoriaProduto(), "Entrada")) {
+                sb.append(String.format("%-30s | Preço: %-30s\n",
+                        entrada,
+                        entrada.getPrecoProduto()));
+            }
+        }
+
+        sb.append("\nPratos principais: \n");
+        for (Produto prato : cardapioRestaurante) {
+            if (Objects.equals(cardapioRestaurante.get(buscarItem(prato.getCodigoItem())).getCategoriaProduto(), "Prato Principal")) {
+                sb.append(String.format("%-30s | Preço: %-30s\n",
+                        prato,
+                        prato.getPrecoProduto()));
+            }
+        }
+
+        sb.append("\nSobremesas: \n");
+        for (Produto sobremesa : cardapioRestaurante) {
+            if (Objects.equals(cardapioRestaurante.get(buscarItem(sobremesa.getCodigoItem())).getCategoriaProduto(), "Sobremesa")) {
+                sb.append(String.format("%-30s | Preço: %-30s\n",
+                        sobremesa,
+                        sobremesa.getPrecoProduto()));
+            }
+        }
+
+        sb.append("\nBebidas: \n");
+        for (Produto bebida : cardapioRestaurante) {
+            if (Objects.equals(cardapioRestaurante.get(buscarItem(bebida.getCodigoItem())).getCategoriaProduto(), "Bebida")) {
+                sb.append(String.format("%-30s | Preço: %-30s\n",
+                        bebida,
+                        bebida.getPrecoProduto()));
+            }
+        }
+
+        return sb.toString();
+    }
 }
+
+
+
+
+

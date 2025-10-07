@@ -25,15 +25,15 @@ public class Cliente extends Usuario {
         this.alergiasCliente.remove(alergia);
     }
 
-    @Override
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("Tipo: %-20s \n",
                 this.getClass()));
-        sb.append(String.format("Alergias: "));
+        sb.append("Alergias: ");
         for (String alergia : alergiasCliente) {
             sb.append(String.format("-%s; ", alergia));}
-        return super.toString() + sb.toString();
+        return super.toString() + sb;
     }
 
     public String relatorioCliente() {
