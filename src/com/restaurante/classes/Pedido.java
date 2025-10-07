@@ -13,13 +13,17 @@ public class Pedido {
     private int statusPedido;
     private LocalDate dataPedido;
 
-    public Pedido(ClienteMesa clienteMesa, Garcom garcom, Chef chef, LocalDate data, String observacao) {
-        this.clienteMesa = clienteMesa;
-        this.garcomPedido = garcom;
-        this.chefPedido = chef;
-        this.dataPedido = data;
-        this.pedidoMesa = new ArrayList<>();
-        this.statusPedido = 0;
+    public Pedido(ClienteMesa clienteMesa, Garcom garcom, Chef chef, LocalDate data) {
+        if (clienteMesa != null) {
+            this.clienteMesa = clienteMesa;
+            this.garcomPedido = garcom;
+            this.chefPedido = chef;
+            this.dataPedido = data;
+            this.pedidoMesa = new ArrayList<>();
+            this.statusPedido = 0;
+        } else {
+            throw new IllegalArgumentException("O cliente da mesa não pode ser nulo para criar um pedido.");
+        }
     }
 
     public void addItemPedido(ItemVenda prato, int quantidade, String observacao) {
@@ -64,7 +68,7 @@ public class Pedido {
                 this.clienteMesa.getClientePedido().getNomeUsuario(),
                 this.clienteMesa.getClientePedido().getCpf(),
                 this.clienteMesa.getClientePedido().formatarTelefone()));
-        sb.append(String.format("Mesa: %-15s | Capacidade: %-15s\n"),
+        sb.append("Mesa: %-15s | Capacidade: %-15s\n",
                 this.clienteMesa.getMesaPedido().getNumeroMesa(),
                 this.clienteMesa.getMesaPedido().getCapacidadeMesa());
         sb.append(String.format("Total: R$ " + this.calcularValorTotal()));
