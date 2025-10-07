@@ -13,30 +13,18 @@ public class Pedido {
     private int statusPedido;
     private LocalDate dataPedido;
 
-    public Pedido(ClienteMesa clienteMesa, LocalDate data) {
+    public Pedido(ClienteMesa clienteMesa, Garcom garcom, Chef chef, LocalDate data, String observacao) {
         this.clienteMesa = clienteMesa;
+        this.garcomPedido = garcom;
+        this.chefPedido = chef;
         this.dataPedido = data;
         this.pedidoMesa = new ArrayList<>();
         this.statusPedido = 0;
     }
-    public ClienteMesa getClienteMesa() {
-        return clienteMesa;
-    }
 
-    public List<ItemVenda> getPedidoMesa() {
-        return pedidoMesa;
-    }
-
-    public int getStatusPedido() {
-        return statusPedido;
-    }
-
-    public LocalDate getDataPedido() {
-        return dataPedido;
-    }
     public void addItemPedido(ItemVenda prato, int quantidade, String observacao) {
         prato.setQuantidade(quantidade);
-        prato.setObservacao(observacao);
+        prato.setObservacaoPedido(observacao);
         pedidoMesa.add(prato);
     }
 
@@ -63,6 +51,7 @@ public class Pedido {
                 throw new IllegalArgumentException("Status inválido: " + status);
         }
     }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -82,5 +71,54 @@ public class Pedido {
 
         return sb.toString();
     }
+
+    public ClienteMesa getClienteMesa() {
+        return clienteMesa;
+    }
+
+    public void setClienteMesa(ClienteMesa clienteMesa) {
+        this.clienteMesa = clienteMesa;
+    }
+
+    public LocalDate getDataPedido() {
+        return dataPedido;
+    }
+
+    public void setDataPedido(LocalDate dataPedido) {
+        this.dataPedido = dataPedido;
+    }
+
+    public int getStatusPedido() {
+        return statusPedido;
+    }
+
+    public void setStatusPedido(int statusPedido) {
+        this.statusPedido = statusPedido;
+    }
+
+    public Garcom getGarcomPedido() {
+        return garcomPedido;
+    }
+
+    public void setGarcomPedido(Garcom garcomPedido) {
+        this.garcomPedido = garcomPedido;
+    }
+
+    public Chef getChefPedido() {
+        return chefPedido;
+    }
+
+    public void setChefPedido(Chef chefPedido) {
+        this.chefPedido = chefPedido;
+    }
+
+    public List<ItemVenda> getPedidoMesa() {
+        return pedidoMesa;
+    }
+
+    public void setPedidoMesa(List<ItemVenda> pedidoMesa) {
+        this.pedidoMesa = pedidoMesa;
+    }
+
 
 }

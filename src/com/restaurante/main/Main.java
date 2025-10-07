@@ -15,7 +15,7 @@ public class Main {
                 "Frios",
                 true,
                 "020");
-        ItemVenda presuntos = new ItemVenda(presunto, 10);
+        ItemVenda presuntos = new ItemVenda(presunto, 10, "sem queijo");
         Cardapio cardapio = new Cardapio();
 
         cardapio.addItem(presunto);

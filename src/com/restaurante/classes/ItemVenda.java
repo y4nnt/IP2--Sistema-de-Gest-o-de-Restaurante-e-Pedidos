@@ -3,8 +3,9 @@ package com.restaurante.classes;
 public class ItemVenda {
     private Produto produtoVendido;
     private int quantidade;
+    private String observacaoPedido;
 
-    public ItemVenda(Produto produtoVendido, int quantidade) {
+    public ItemVenda(Produto produtoVendido, int quantidade, String observacao) {
         this.produtoVendido = produtoVendido;
 
         if(quantidade < 0){
@@ -13,6 +14,8 @@ public class ItemVenda {
         else{
             this.quantidade = quantidade;
         }
+
+        this.observacaoPedido = observacao;
     }
 
     public Produto getProdutoVendido() {
@@ -29,6 +32,14 @@ public class ItemVenda {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public String getObservacaoPedido() {
+        return observacaoPedido;
+    }
+
+    public void setObservacaoPedido(String observacaoPedido) {
+        this.observacaoPedido = observacaoPedido;
     }
 
     public double calcularTotal(){
