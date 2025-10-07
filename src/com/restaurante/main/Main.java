@@ -9,7 +9,17 @@ public class Main {
                 "Frios",
                 true,
                 "019");
-        itemVenda presuntos = new itemVenda(presunto, 10);
+        Produto queijo = new Produto("Queijo",
+                "Alimento frio",
+                17.99,
+                "Frios",
+                true,
+                "020");
+        ItemVenda presuntos = new ItemVenda(presunto, 10);
+        Cardapio cardapio = new Cardapio();
+
+        cardapio.addItem(presunto);
+        System.out.println("Codigo do item procurado: " + cardapio.buscarItem("019"));
 
         System.out.println(presuntos.calcularTotal());
     }

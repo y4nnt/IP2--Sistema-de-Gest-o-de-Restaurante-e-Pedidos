@@ -9,13 +9,23 @@ public class Produto {
     private int numeroVendas;
     private String codigoItem;
 
+    // Depois, incluir try-catch em todos, evitando problemas futuros.
     public Produto(String nomeProduto, String descricaoProduto, double precoProduto, String categoriaProduto, boolean statusItem, String codigoItem) {
         this.nomeProduto = nomeProduto;
         this.descricaoProduto = descricaoProduto;
-        this.precoProduto = precoProduto;
+
         this.categoriaProduto = categoriaProduto;
         this.statusItem = statusItem;
         this.codigoItem = codigoItem;
+
+        // Primeiro verifica se o preço inicializado é negativo, se for, retorna 0,
+        // sendo um produto "sem preço".
+        if(precoProduto < 0){
+            this.precoProduto = 0;
+        }
+        else {
+            this.precoProduto = precoProduto;
+        }
 
         // Inicializa em 0, pois vai ser aumentado com o metodo addNumeroVendas
         this.numeroVendas = 0;
@@ -53,7 +63,7 @@ public class Produto {
         this.categoriaProduto = categoriaProduto;
     }
 
-    public boolean isStatusItem() {
+    public boolean getStatusItem() {
         return statusItem;
     }
 
@@ -63,10 +73,6 @@ public class Produto {
 
     public int getNumeroVendas() {
         return numeroVendas;
-    }
-
-    public void setNumeroVendas(int numeroVendas) {
-        this.numeroVendas = numeroVendas;
     }
 
     public String getCodigoItem() {
@@ -102,6 +108,26 @@ public class Produto {
                 this.statusItem,
                 this.numeroVendas
         );
+    }
+
+    @Override
+    public int hashCode(){
+        return Integer.parseInt(this.getCodigoItem());
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o){
+            return true;
+        }
+        if(o == null || this.getClass() != o.getClass()){
+            return false;
+        }
+
+        Produto produto = (Produto) o;
+
+        return this.getCodigoItem().equals(produto.getCodigoItem());
+
     }
 
 }

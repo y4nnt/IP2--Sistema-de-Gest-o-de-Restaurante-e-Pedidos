@@ -1,12 +1,18 @@
 package com.restaurante.classes;
 
-public class itemVenda {
+public class ItemVenda {
     private Produto produtoVendido;
     private int quantidade;
 
-    public itemVenda(Produto produtoVendido, int quantidade) {
+    public ItemVenda(Produto produtoVendido, int quantidade) {
         this.produtoVendido = produtoVendido;
-        this.quantidade = quantidade;
+
+        if(quantidade < 0){
+            this.quantidade = 0;
+        }
+        else{
+            this.quantidade = quantidade;
+        }
     }
 
     public Produto getProdutoVendido() {
