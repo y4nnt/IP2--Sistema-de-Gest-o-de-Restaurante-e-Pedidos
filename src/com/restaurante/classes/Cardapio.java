@@ -32,7 +32,7 @@ public class Cardapio {
         for(int i = 0; i < this.cardapioRestaurante.size(); i++) {
             Produto produto = this.cardapioRestaurante.get(i);
 
-            if(produto.getCodigoItem().equals(codigoItem)){
+            if(produto.getCodigoProduto().equals(codigoItem)){
                 return i;
             }
         }
@@ -44,7 +44,7 @@ public class Cardapio {
     public void atualizarDisponibilidadeItem(String codigo, boolean status){
         int indiceItem = buscarItem(codigo);
         if(indiceItem != -1) {
-            this.cardapioRestaurante.get(indiceItem).setStatusItem(status);
+            this.cardapioRestaurante.get(indiceItem).setStatusProduto(StatusProduto.DISPONIVEL);
         }
     }
 
@@ -54,7 +54,7 @@ public class Cardapio {
         sb.append("Cardápio\n\n");
         sb.append("Entradas: \n");
         for (Produto entrada : cardapioRestaurante) {
-            if (Objects.equals(cardapioRestaurante.get(buscarItem(entrada.getCodigoItem())).getCategoriaProduto(), "Entrada")) {
+            if (Objects.equals(cardapioRestaurante.get(buscarItem(entrada.getCodigoProduto())).getCategoriaProduto(), "Entrada")) {
                 sb.append(String.format("%-30s | Preço: %-30s\n",
                         entrada,
                         entrada.getPrecoProduto()));
@@ -63,7 +63,7 @@ public class Cardapio {
 
         sb.append("\nPratos principais: \n");
         for (Produto prato : cardapioRestaurante) {
-            if (Objects.equals(cardapioRestaurante.get(buscarItem(prato.getCodigoItem())).getCategoriaProduto(), "Prato Principal")) {
+            if (Objects.equals(cardapioRestaurante.get(buscarItem(prato.getCodigoProduto())).getCategoriaProduto(), "Prato Principal")) {
                 sb.append(String.format("%-30s | Preço: %-30s\n",
                         prato,
                         prato.getPrecoProduto()));
@@ -72,7 +72,7 @@ public class Cardapio {
 
         sb.append("\nSobremesas: \n");
         for (Produto sobremesa : cardapioRestaurante) {
-            if (Objects.equals(cardapioRestaurante.get(buscarItem(sobremesa.getCodigoItem())).getCategoriaProduto(), "Sobremesa")) {
+            if (Objects.equals(cardapioRestaurante.get(buscarItem(sobremesa.getCodigoProduto())).getCategoriaProduto(), "Sobremesa")) {
                 sb.append(String.format("%-30s | Preço: %-30s\n",
                         sobremesa,
                         sobremesa.getPrecoProduto()));
@@ -81,7 +81,7 @@ public class Cardapio {
 
         sb.append("\nBebidas: \n");
         for (Produto bebida : cardapioRestaurante) {
-            if (Objects.equals(cardapioRestaurante.get(buscarItem(bebida.getCodigoItem())).getCategoriaProduto(), "Bebida")) {
+            if (Objects.equals(cardapioRestaurante.get(buscarItem(bebida.getCodigoProduto())).getCategoriaProduto(), "Bebida")) {
                 sb.append(String.format("%-30s | Preço: %-30s\n",
                         bebida,
                         bebida.getPrecoProduto()));

@@ -7,13 +7,13 @@ public class Main {
                 "Alimento frio",
                 10.99,
                 "Frios",
-                true,
+                StatusProduto.DISPONIVEL,
                 "019");
         Produto queijo = new Produto("Queijo",
                 "Alimento frio",
                 17.99,
                 "Frios",
-                true,
+                StatusProduto.DISPONIVEL,
                 "020");
         ItemVenda presuntos = new ItemVenda(presunto, 10, "sem queijo");
         Cardapio cardapio = new Cardapio();
