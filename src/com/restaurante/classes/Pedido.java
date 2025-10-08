@@ -8,16 +8,14 @@ import java.util.List;
 public class Pedido {
     private ClienteMesa clienteMesa;
     private Garcom garcomPedido;
-    private Chef chefPedido;
     private List<ItemVenda> pedidoMesa;
     private int statusPedido;
     private LocalDate dataPedido;
 
-    public Pedido(ClienteMesa clienteMesa, Garcom garcom, Chef chef, LocalDate data) {
+    public Pedido(ClienteMesa clienteMesa, Garcom garcom, LocalDate data) {
         if (clienteMesa != null) {
             this.clienteMesa = clienteMesa;
             this.garcomPedido = garcom;
-            this.chefPedido = chef;
             this.dataPedido = data;
             this.pedidoMesa = new ArrayList<>();
             this.statusPedido = 0;
@@ -108,13 +106,6 @@ public class Pedido {
         this.garcomPedido = garcomPedido;
     }
 
-    public Chef getChefPedido() {
-        return chefPedido;
-    }
-
-    public void setChefPedido(Chef chefPedido) {
-        this.chefPedido = chefPedido;
-    }
 
     public List<ItemVenda> getPedidoMesa() {
         return pedidoMesa;

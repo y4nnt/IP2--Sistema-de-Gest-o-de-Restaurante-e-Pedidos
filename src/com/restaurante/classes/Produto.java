@@ -10,6 +10,7 @@ public class Produto {
     private boolean statusItem;
     private int numeroVendas;
     private String codigoItem;
+    private Chef chefProduto;
 
     // Depois, incluir try-catch em todos, evitando problemas futuros.
     public Produto(String nomeProduto, String descricaoProduto, double precoProduto, String categoriaProduto, boolean statusItem, String codigoItem) {
@@ -88,6 +89,14 @@ public class Produto {
     // Quando um produto for vendido, esse metodo será usado para indicar o numero de vendas
     public void addNumeroVendas(){
         this.numeroVendas++;
+    }
+
+    public Chef getChefProduto() {
+        return chefProduto;
+    }
+
+    public void setChefProduto(Chef chefProduto) {
+        this.chefProduto = chefProduto;
     }
 
     // Retorna uma String no formato de linha à linha, necessitando de um sout para mostrar
