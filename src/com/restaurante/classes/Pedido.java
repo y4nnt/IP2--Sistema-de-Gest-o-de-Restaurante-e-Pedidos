@@ -1,128 +1,71 @@
 package com.restaurante.classes;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
+
     private ClienteMesa clienteMesa;
+    private List<ItemVenda> itensPedido;
     private Garcom garcomPedido;
-    private Chef chefPedido;
-    private List<ItemVenda> pedidoMesa;
-    private int statusPedido;
+    private String statusPedido;
     private LocalDate dataPedido;
 
-    public Pedido(ClienteMesa clienteMesa, Garcom garcom, Chef chef, LocalDate data) {
-        if (clienteMesa != null) {
-            this.clienteMesa = clienteMesa;
-            this.garcomPedido = garcom;
-            this.chefPedido = chef;
-            this.dataPedido = data;
-            this.pedidoMesa = new ArrayList<>();
-            this.statusPedido = 0;
-        } else {
-            throw new IllegalArgumentException("O cliente da mesa não pode ser nulo para criar um pedido.");
+        public Pedido(ClienteMesa clienteMesa, LocalDate data, Garcom garcom) {
+        this.clienteMesa = clienteMesa;
+        this.dataPedido = data;
+        this.garcomPedido = garcom;
+        this.itensPedido = new ArrayList<>();
+        this.statusPedido = "ABERTO";
+    }
+
+    public void addItemPedido(Produto prato, int quantidade, String observacao) {
+        if (prato == null || quantidade <= 0) {
+            throw new IllegalArgumentException("Item ou quantidade inválida.");
         }
+
+        ItemVenda novoItem = new ItemVenda(prato, quantidade, observacao);
+        this.itensPedido.add(novoItem);
     }
 
-    public void addItemPedido(ItemVenda prato, int quantidade, String observacao) {
-        prato.setQuantidade(quantidade);
-        prato.setObservacaoPedido(observacao);
-        pedidoMesa.add(prato);
-    }
-
-    public double calcularValorTotal() {
+        public double calcularValorTotal() {
         double total = 0;
-        for (ItemVenda item : pedidoMesa) {
-            total += item.getProdutoVendido().getPrecoProduto() * item.getQuantidade();
+        for (ItemVenda item : this.itensPedido) {
+            total += item.calcularTotal();
         }
         return total;
     }
 
     public void atualizarStatusPedido(String status) {
-        switch (status.toLowerCase()) {
-            case "em andamento":
-                this.statusPedido = 0;
-                break;
-            case "pronto":
-                this.statusPedido = 1;
-                break;
-            case "entregue":
-                this.statusPedido = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Status inválido: " + status);
+        if (status != null && !status.trim().isEmpty()) {
+            this.statusPedido = status;
         }
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        String dataHoraFormatada = this.dataPedido.format(formatador);
-
-        sb.append(String.format("Data: %s\n", dataHoraFormatada));
-        sb.append(String.format("Cliente: %-15s | CPF: %-15s | Telefone: %-15s\n",
-                this.clienteMesa.getClientePedido().getNomeUsuario(),
-                this.clienteMesa.getClientePedido().getCpf(),
-                this.clienteMesa.getClientePedido().formatarTelefone()));
-        sb.append("Mesa: %-15s | Capacidade: %-15s\n",
-                this.clienteMesa.getMesaPedido().getNumeroMesa(),
-                this.clienteMesa.getMesaPedido().getCapacidadeMesa());
-        sb.append(String.format("Total: R$ " + this.calcularValorTotal()));
-
-        return sb.toString();
-    }
-
-    public ClienteMesa getClienteMesa() {
-        return clienteMesa;
-    }
-
-    public void setClienteMesa(ClienteMesa clienteMesa) {
-        this.clienteMesa = clienteMesa;
     }
 
     public LocalDate getDataPedido() {
         return dataPedido;
     }
 
-    public void setDataPedido(LocalDate dataPedido) {
-        this.dataPedido = dataPedido;
+    public List<ItemVenda> getItensPedido() {
+        return itensPedido;
     }
 
-    public int getStatusPedido() {
-        return statusPedido;
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("--- Detalhes do Pedido ---\n");
+        sb.append("Data: ").append(dataPedido).append("\n");
+        sb.append("Cliente/Mesa: ").append(clienteMesa).append("\n");
+        sb.append("Garçom: ").append(garcomPedido).append("\n");
+        sb.append("Status: ").append(statusPedido).append("\n");
+        sb.append("Itens Pedidos:\n");
+
+        for (ItemVenda item : itensPedido) {
+            sb.append(item).append("\n");
+        }
+
+        sb.append("VALOR TOTAL: R$ ").append(String.format("%.2f", calcularValorTotal()));
+        return sb.toString();
     }
-
-    public void setStatusPedido(int statusPedido) {
-        this.statusPedido = statusPedido;
-    }
-
-    public Garcom getGarcomPedido() {
-        return garcomPedido;
-    }
-
-    public void setGarcomPedido(Garcom garcomPedido) {
-        this.garcomPedido = garcomPedido;
-    }
-
-    public Chef getChefPedido() {
-        return chefPedido;
-    }
-
-    public void setChefPedido(Chef chefPedido) {
-        this.chefPedido = chefPedido;
-    }
-
-    public List<ItemVenda> getPedidoMesa() {
-        return pedidoMesa;
-    }
-
-    public void setPedidoMesa(List<ItemVenda> pedidoMesa) {
-        this.pedidoMesa = pedidoMesa;
-    }
-
-
 }

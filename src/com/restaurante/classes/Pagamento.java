@@ -1,48 +1,37 @@
 package com.restaurante.classes;
 
-import java.time.format.DateTimeFormatter;
-
 public class Pagamento {
+
     private Pedido pedidoFinal;
 
-    public Pagamento(Pedido pedidoFinal) {
-        if (pedidoFinal != null) {
-            this.pedidoFinal = pedidoFinal;
-        } else {
-            throw new IllegalArgumentException("O pagamento precisa de um pedido.");
+            public Pagamento(Pedido pedidoFinal) {
+        if (pedidoFinal == null) {
+            throw new IllegalArgumentException("O pagamento deve estar associado a um pedido válido.");
         }
-
+        this.pedidoFinal = pedidoFinal;
     }
 
     public String pagarPedido(Pedido pedido) {
-        return "Pagamento do pedido efetuado com sucesso.";
+        if (pedido.calcularValorTotal() > 0) {
+            pedido.atualizarStatusPedido("Pago");
+            return String.format("Pagamento de R$ %.2f realizado com sucesso. Pedido atualizado para PAGO.",
+                    pedido.calcularValorTotal());
+        }
+        return "Nenhum valor a pagar.";
     }
 
-    // Divide o valor do pedido entre as pessoas
     public double dividirPedido(Pedido pedido, int quantidade) {
-        double valor = 0;
-        if (quantidade > 0) {
-            valor = pedido.calcularValorTotal() / quantidade;
+        if (quantidade <= 0) {
+            throw new IllegalArgumentException("A quantidade de pessoas para dividir deve ser maior que zero.");
         }
-        return valor;
+        return pedido.calcularValorTotal() / quantidade;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        return String.format("Pagamento pendente para Pedido do dia %s. Total: R$ %.2f",
+                pedidoFinal.getDataPedido(), pedidoFinal.calcularValorTotal());
 
-        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        String dataHoraFormatada = pedidoFinal.getDataPedido().format(formatador);
-
-        sb.append(String.format("Data do pagamento: %-15s\n", dataHoraFormatada));
-        sb.append(String.format("Cliente: %-15s | CPF: %-15s | Telefone: %-15s\n",
-                this.pedidoFinal.getClienteMesa().getClientePedido().getNomeUsuario(),
-                this.pedidoFinal.getClienteMesa().getClientePedido().getCpf(),
-                this.pedidoFinal.getClienteMesa().getClientePedido().formatarTelefone()));
-        sb.append(String.format("Valor: %-15s\n",
-                this.pedidoFinal.calcularValorTotal()));
-
-        return sb.toString();
     }
 }
 
