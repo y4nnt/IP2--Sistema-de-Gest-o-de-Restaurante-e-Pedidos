@@ -7,6 +7,55 @@ O sistema deve organizar as mesas do restaurante, controlando quais estão livre
 
 Relatórios de vendas por período, por item ou por mesa devem estar disponíveis, com possibilidade de exportação em PDF ou CSV para análise de desempenho do restaurante.
 
+## Requisitos Funcionais
+
+### 1. Gerenciamento de Clientes
+
+- **REQ01**: Permitir o cadastro de clientes, incluindo nome, telefone e e-mail.
+- **REQ02**: Manter histórico de consumo por cliente (pedidos anteriores e valores gastos).
+
+### 2. Gerenciamento de Mesas
+
+- **REQ03**: Permitir o cadastro de mesas, com número ou identificação única e capacidade de lugares.
+- **REQ04**: Controlar status da mesa (livre, ocupada, reservada, em limpeza).
+
+### 3. Gerenciamento de Cardápio
+
+- **REQ05**: Permitir o cadastro de itens do cardápio com nome, descrição, preço e categoria (entrada, prato principal, bebida etc.).
+- **REQ06**: Atualizar disponibilidade de itens (disponível, indisponível).
+
+### 4. Registro de Pedidos
+
+- **REQ07**: Permitir a criação de pedidos vinculados a uma mesa e/ou cliente.
+- **REQ08**: Permitir a inclusão de múltiplos itens do cardápio em um pedido, com quantidade e observações.
+- **REQ09**: Calcular automaticamente o valor total do pedido.
+- **REQ10**: Atualizar o status do pedido (em preparação, pronto, entregue, cancelado).
+
+### 5. Pagamentos
+
+- **REQ11**: Permitir o registro de pagamentos vinculados a pedidos.
+- **REQ12**: Suportar diferentes métodos de pagamento (dinheiro, cartão, PIX).
+- **REQ13**: Permitir a divisão da conta entre diferentes clientes na mesma mesa.
+
+### 6. Reservas de Mesas
+
+- **REQ14**: Permitir que clientes façam reservas de mesas informando data, horário e número de pessoas.
+- **REQ15**: Bloquear automaticamente mesas reservadas nos horários definidos.
+- **REQ16**: Cancelar reservas apenas com antecedência mínima de 1 hora.
+
+### 7. Relatórios e Estatísticas
+
+- **REQ17**: Gerar relatório de vendas por período (diário, semanal, mensal).
+- **REQ18**: Gerar relatório de itens mais vendidos do cardápio.
+- **REQ19**: Gerar relatório de ocupação de mesas.
+- **REQ20**: Permitir exportação de relatórios em **PDF** e **CSV**, com filtros e agrupamentos.
+
+### 8. Regras e Restrições
+
+- **REQ21**: Não permitir pedidos em mesas não ocupadas ou reservadas.
+- **REQ22**: Não permitir fechamento da conta sem que todos os itens do pedido tenham sido entregues ou cancelados.
+- **REQ23**: Não permitir reserva de mesa além da capacidade definida.
+
 ## Link do github
 https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Restaurante-e-Pedidos
 
