@@ -22,12 +22,13 @@ public class Garcom extends Usuario{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());
         sb.append(String.format("Tipo: %-20s \n",
                 this.getClass()));
         sb.append("Habilidades: ");
         for (String habilidade : qualidadesGarcom) {
             sb.append(String.format("-%s; ", habilidade));}
 
-        return super.toString() + this.toString();
+        return sb.toString();
     }
 }

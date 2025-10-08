@@ -22,11 +22,12 @@ public class Chef extends Usuario {
 
     public String toString(){
         StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());
         sb.append(String.format("Tipo: %-20s \n",
                 this.getClass()));
         sb.append(String.format("Pratos de especialidades: "));
         for (Produto prato : pratoEspecialidades) {
             sb.append(String.format("-%s; ", prato));}
-        return super.toString() + sb.toString();
+        return sb.toString();
     }
 }

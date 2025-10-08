@@ -28,15 +28,22 @@ public class Cliente extends Usuario {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());
         sb.append(String.format("Tipo: %-20s \n",
                 this.getClass()));
         sb.append("Alergias: ");
         for (String alergia : alergiasCliente) {
             sb.append(String.format("-%s; ", alergia));}
-        return super.toString() + sb;
+        return sb.toString();
     }
 
     public String relatorioCliente() {
-        return "a";
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.toString());
+        sb.append("\n");
+        for (int i = 0; i < this.pedidosPorCliente.size(); i++) {
+            sb.append(this.pedidosPorCliente.get(i).toString());
+            sb.append("\n");
+        }
     }
 }
