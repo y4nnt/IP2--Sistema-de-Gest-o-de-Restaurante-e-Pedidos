@@ -3,9 +3,9 @@ import com.restaurante.classes.*;
 
 public class MainTesteMesa {
     public static void main(String[] args) {
-        Mesa mesa1 = new Mesa(1, false, 4);
-        Mesa mesa2 = new Mesa(2, false, 2);
-        Mesa mesa3 = new Mesa(3, false, 6);
+        Mesa mesa1 = new Mesa(1, StatusMesa.LIVRE, 4);
+        Mesa mesa2 = new Mesa(2, StatusMesa.LIVRE, 2);
+        Mesa mesa3 = new Mesa(3, StatusMesa.LIVRE, 6);
 
         System.out.println("Número da Mesa 1: " + mesa1.getNumeroMesa());
         System.out.println("Status da Mesa 1 (true = ocupada, false = livre): " + mesa1.isStatusMesa());

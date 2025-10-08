@@ -38,20 +38,11 @@ public class Pedido {
         return total;
     }
 
-    public void atualizarStatusPedido(String status) {
-        switch (status.toLowerCase()) {
-            case "em andamento":
-                this.statusPedido = 0;
-                break;
-            case "pronto":
-                this.statusPedido = 1;
-                break;
-            case "entregue":
-                this.statusPedido = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Status inválido: " + status);
+    public void atualizarStatusPedido(StatusPedido novoStatus) {
+        if (novoStatus == null) {
+            throw new IllegalArgumentException("Status do pedido não pode ser nulo.");
         }
+        this.statusPedido = novoStatus.getCodigo();
     }
 
     @Override
