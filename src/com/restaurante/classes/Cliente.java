@@ -45,5 +45,6 @@ public class Cliente extends Usuario {
             sb.append(this.pedidosPorCliente.get(i).toString());
             sb.append("\n");
         }
+        return sb.toString();
     }
 }
