@@ -7,6 +7,9 @@ O sistema deve organizar as mesas do restaurante, controlando quais estão livre
 
 Relatórios de vendas por período, por item ou por mesa devem estar disponíveis, com possibilidade de exportação em PDF ou CSV para análise de desempenho do restaurante.
 
+## Link do github
+https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Restaurante-e-Pedidos
+
 ## Integrantes
 * Yann Tavares de Santana - yann.tavares@ufrpe.br - yanntavares123@gmail.com
 * Rian Guilherme Camara Fernandes - rian.guilherme@ufrpe.br - riangui0305@gmail.com
