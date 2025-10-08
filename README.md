@@ -15,4 +15,6 @@ Relatórios de vendas por período, por item ou por mesa devem estar disponívei
 * Nícolas Gabriel Nunes Marques - nicolas.gabriel@ufrpe.br - nicolasg22132@gmail.com
 
 ## Diagrama de classes
-![UML Sistema de Gestão de Restaurante e Pedidos](https://github.com/user-attachments/assets/653b6b2b-6d1b-46f8-a6df-bb6bc46ff39c)
+![UML Sistema de Gestão de Restaurante e Pedidos](https://github.com/user-attachments/assets/32c18113-3df3-48cf-bed7-16572bbf32bf)
+
+
