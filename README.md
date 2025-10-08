@@ -16,3 +16,6 @@ Relatórios de vendas por período, por item ou por mesa devem estar disponívei
 
 ## Diagrama de classes
 ![UML Sistema de Gestão de Restaurante e Pedidos](https://github.com/user-attachments/assets/52c3a349-cd82-4a32-9efe-c09edad7e8db)
+
+### Documento Original
+[UML Sistema de Gestão de Restaurante e Pedidos.drawio.pdf](https://github.com/user-attachments/files/22787052/UML.Sistema.de.Gestao.de.Restaurante.e.Pedidos.drawio.pdf)
