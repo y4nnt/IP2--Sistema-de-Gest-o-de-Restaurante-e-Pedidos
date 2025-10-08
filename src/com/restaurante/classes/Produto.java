@@ -7,17 +7,18 @@ public class Produto {
     private String descricaoProduto;
     private double precoProduto;
     private String categoriaProduto;
-    private boolean statusItem;
+    private StatusProduto statusProduto;
     private int numeroVendas;
     private String codigoItem;
+    private Chef chefProduto;
 
     // Depois, incluir try-catch em todos, evitando problemas futuros.
-    public Produto(String nomeProduto, String descricaoProduto, double precoProduto, String categoriaProduto, boolean statusItem, String codigoItem) {
+    public Produto(String nomeProduto, String descricaoProduto, double precoProduto, String categoriaProduto, StatusProduto statusProduto, String codigoItem) {
         this.nomeProduto = nomeProduto;
         this.descricaoProduto = descricaoProduto;
 
         this.categoriaProduto = categoriaProduto;
-        this.statusItem = statusItem;
+        this.statusProduto = statusProduto;
         this.codigoItem = codigoItem;
 
         // Primeiro verifica se o preço inicializado é negativo, se for, retorna 0,
@@ -65,12 +66,12 @@ public class Produto {
         this.categoriaProduto = categoriaProduto;
     }
 
-    public boolean getStatusItem() {
-        return statusItem;
+    public StatusProduto getStatusProduto() {
+        return statusProduto;
     }
 
-    public void setStatusItem(boolean statusItem) {
-        this.statusItem = statusItem;
+    public void setStatusProduto(StatusProduto statusProduto) {
+        this.statusProduto = statusProduto;
     }
 
     public int getNumeroVendas() {
@@ -90,6 +91,14 @@ public class Produto {
         this.numeroVendas++;
     }
 
+    public Chef getChefProduto() {
+        return chefProduto;
+    }
+
+    public void setChefProduto(Chef chefProduto) {
+        this.chefProduto = chefProduto;
+    }
+
     // Retorna uma String no formato de linha à linha, necessitando de um sout para mostrar
     public String toString(){
         StringBuilder sb = new StringBuilder();
@@ -103,7 +112,7 @@ public class Produto {
         sb.append(String.format("Categoria: %-15s | Número de vendas: %-15s | Status: ",
                 this.categoriaProduto,
                 this.numeroVendas));
-        if (this.statusItem) {
+        if (this.statusProduto.getCodigo() == 1) {
             sb.append(String.format("Disponível\n"));
         } else {
             sb.append(String.format("Indisponível\n"));

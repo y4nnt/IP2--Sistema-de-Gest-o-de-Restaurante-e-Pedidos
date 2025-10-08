@@ -2,11 +2,11 @@ package com.restaurante.classes;
 
 public class Mesa {
     private int numeroMesa;
-    private boolean statusMesa; // true = ocupada, false = livre
+    private StatusMesa statusMesa; // OCUPADA(0) = ocupada, LIVRE(1) = livre
     private int capacidadeMesa;
     private int numeroUso;
 
-    public Mesa(int numeroMesa, boolean statusMesa, int capacidadeMesa) {
+    public Mesa(int numeroMesa, StatusMesa statusMesa, int capacidadeMesa) {
         setNumeroMesa(numeroMesa);
         setStatusMesa(statusMesa);
         setCapacidadeMesa(capacidadeMesa);
@@ -26,11 +26,11 @@ public class Mesa {
         this.numeroMesa = numeroMesa;
     }
 
-    public boolean isStatusMesa() {
+    public StatusMesa isStatusMesa() {
         return statusMesa;
     }
 
-    public void setStatusMesa(boolean statusMesa) {
+    public void setStatusMesa(StatusMesa statusMesa) {
         this.statusMesa = statusMesa;
     }
 
@@ -40,10 +40,10 @@ public class Mesa {
                 this.numeroMesa,
                 this.capacidadeMesa,
                 this.getNumeroUso()));
-        if (this.statusMesa) {
-            sb.append(String.format("Ocupada\n"));
-        } else {
+        if (this.statusMesa.getCodigo() == 1) {
             sb.append(String.format("Livre\n"));
+        } else {
+            sb.append(String.format("Ocupada\n"));
         }
 
         return sb.toString();
