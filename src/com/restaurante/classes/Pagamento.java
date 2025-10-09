@@ -3,6 +3,7 @@ package com.restaurante.classes;
 public class Pagamento {
 
     private Pedido pedidoFinal;
+    private StatusPagamento statusPagamento;
 
             public Pagamento(Pedido pedidoFinal) {
         if (pedidoFinal == null) {
@@ -10,10 +11,10 @@ public class Pagamento {
         }
         this.pedidoFinal = pedidoFinal;
     }
-
+    //adicionar posteriormente(quando eu descobrir como faz) os outros métodos relacionados ao Status do Pagamento como: Pagamento Aberto, Em Processamento.
     public String pagarPedido(Pedido pedido) {
         if (pedido.calcularValorTotal() > 0) {
-            pedido.atualizarStatusPedido("Pago");
+            this.statusPagamento = StatusPagamento.PAGO;
             return String.format("Pagamento de R$ %.2f realizado com sucesso. Pedido atualizado para PAGO.",
                     pedido.calcularValorTotal());
         }

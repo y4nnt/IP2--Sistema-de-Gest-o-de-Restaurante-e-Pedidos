@@ -2,7 +2,9 @@ package com.restaurante.classes;
 
 public enum StatusMesa {
     OCUPADA(0),
-    LIVRE(1);
+    LIVRE(1),
+    RESERVADA(2),
+    EM_LIMPEZA(3);
 
     private final int codigo;
 
