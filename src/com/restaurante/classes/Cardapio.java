@@ -41,10 +41,10 @@ public class Cardapio {
 
     // Substitui o status do item pelo status colocado como parâmetro
     // (Pode ser usado para quando um produto estiver fora do estoque)
-    public void atualizarDisponibilidadeItem(String codigo, boolean status){
+    public void atualizarDisponibilidadeItem(String codigo, StatusProduto status){
         int indiceItem = buscarItem(codigo);
         if(indiceItem != -1) {
-            this.cardapioRestaurante.get(indiceItem).setStatusProduto(StatusProduto.DISPONIVEL);
+            this.cardapioRestaurante.get(indiceItem).setStatusProduto(status);
         }
     }
 

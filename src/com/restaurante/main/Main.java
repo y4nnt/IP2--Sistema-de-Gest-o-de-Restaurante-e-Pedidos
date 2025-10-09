@@ -57,28 +57,25 @@ public class Main {
         Cardapio cardapio = new Cardapio();
 
         // Criação dos produtos:
-        StatusProduto statusFileMignon = StatusProduto.DISPONIVEL;
         Produto fileMignon = new Produto("Filé Mignon",
                 "Um gostoso filé",
                 56.99,
                 CategoriaProduto.PRINCIPAL,
-                statusFileMignon,
+                StatusProduto.DISPONIVEL,
                 "001");
 
-        StatusProduto statusSorvete = StatusProduto.DISPONIVEL;
         Produto sorvete = new Produto("Sorvete",
                 "Um sorvete geladinho",
                 5.99,
                 CategoriaProduto.SOBREMESA,
-                statusSorvete,
+                StatusProduto.DISPONIVEL,
                 "005");
 
-        StatusProduto statusCocaCola = StatusProduto.DISPONIVEL;
         Produto cocaCola = new Produto("Coca-Cola",
                 "Coquinha geladinha",
                 9.99,
                 CategoriaProduto.BEBIDA,
-                statusCocaCola,
+                StatusProduto.DISPONIVEL,
                 "069");
 
 

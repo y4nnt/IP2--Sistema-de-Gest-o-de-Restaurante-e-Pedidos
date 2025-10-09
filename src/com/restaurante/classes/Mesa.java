@@ -40,10 +40,15 @@ public class Mesa {
                 this.numeroMesa,
                 this.capacidadeMesa,
                 this.getNumeroUso()));
+        //Melhorar isso depois, solução provisória
         if (this.statusMesa.getCodigo() == 1) {
             sb.append(String.format("Livre\n"));
-        } else {
+        } else if (this.statusMesa.getCodigo() == 0) {
             sb.append(String.format("Ocupada\n"));
+        } else if (this.statusMesa.getCodigo() == 2) {
+            sb.append(String.format("Reservada\n"));
+        } else if (this.statusMesa.getCodigo() == 3) {
+            sb.append(String.format("Em Limpeza\n"));
         }
 
         return sb.toString();
