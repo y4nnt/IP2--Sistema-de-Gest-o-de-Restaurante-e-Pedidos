@@ -1,4 +1,4 @@
-# IP2--Sistema-de-Gest-o-de-Restaurante-e-Pedidos
+git# IP2--Sistema-de-Gest-o-de-Restaurante-e-Pedidos
 
 ## Descrição 
 Este sistema tem como objetivo gerenciar o atendimento em um restaurante, incluindo cadastro de clientes, mesas, cardápio e pedidos. Ele deve permitir que garçons registrem os pedidos realizados em cada mesa, vinculem itens do cardápio, acompanhem o status da preparação e registrem os pagamentos.
@@ -67,7 +67,7 @@ https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Restaurante-e-Pedidos
 * Nícolas Gabriel Nunes Marques - nicolas.gabriel@ufrpe.br - nicolasg22132@gmail.com
 
 ## Diagrama de classes
-![UML Sistema de Gestão de Restaurante e Pedidos](https://github.com/user-attachments/assets/52c3a349-cd82-4a32-9efe-c09edad7e8db)
+![UML Sistema de Gestão de Restaurante e Pedidos](https://github.com/user-attachments/assets/cf31293c-21f5-46e5-af66-cd4b4036e429)
 
 ### Documento Original
-[UML Sistema de Gestão de Restaurante e Pedidos.drawio.pdf](https://github.com/user-attachments/files/22787052/UML.Sistema.de.Gestao.de.Restaurante.e.Pedidos.drawio.pdf)
+[UML Sistema de Gestão de Restaurante e Pedidos.drawio.pdf](https://github.com/user-attachments/files/22787851/UML.Sistema.de.Gestao.de.Restaurante.e.Pedidos.drawio.1.pdf)

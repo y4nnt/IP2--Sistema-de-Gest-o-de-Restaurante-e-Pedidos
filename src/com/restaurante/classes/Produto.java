@@ -1,7 +1,5 @@
 package com.restaurante.classes;
 
-import java.time.format.DateTimeFormatter;
-
 public class Produto {
     private String nomeProduto;
     private String descricaoProduto;
@@ -78,7 +76,7 @@ public class Produto {
         return numeroVendas;
     }
 
-    public String getCodigoItem() {
+    public String getCodigoProduto() {
         return codigoItem;
     }
 
@@ -123,7 +121,7 @@ public class Produto {
 
     @Override
     public int hashCode(){
-        return Integer.parseInt(this.getCodigoItem());
+        return Integer.parseInt(this.getCodigoProduto());
     }
 
     @Override
@@ -137,7 +135,7 @@ public class Produto {
 
         Produto produto = (Produto) o;
 
-        return this.getCodigoItem().equals(produto.getCodigoItem());
+        return this.getCodigoProduto().equals(produto.getCodigoProduto());
 
     }
 
