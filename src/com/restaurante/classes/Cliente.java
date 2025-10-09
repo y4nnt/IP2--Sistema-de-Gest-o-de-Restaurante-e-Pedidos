@@ -7,7 +7,7 @@ public class Cliente extends Usuario {
     private List<Pedido> pedidosPorCliente;
     private List<String> alergiasCliente;
 
-    Cliente(String nomeUsuario, String cpf, String email, String telefone) {
+    public Cliente(String nomeUsuario, String cpf, String email, String telefone) {
         super(nomeUsuario, cpf, email, telefone);
         this.pedidosPorCliente = new ArrayList<>();
         this.alergiasCliente = new ArrayList<>();
@@ -33,7 +33,7 @@ public class Cliente extends Usuario {
                 this.getClass()));
         sb.append("Alergias: ");
         for (String alergia : alergiasCliente) {
-            sb.append(String.format("-%s; ", alergia));}
+            sb.append(String.format("%s; \n", alergia));}
         return sb.toString();
     }
 

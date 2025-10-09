@@ -7,9 +7,9 @@ public class Mesa {
     private int numeroUso;
 
     public Mesa(int numeroMesa, StatusMesa statusMesa, int capacidadeMesa) {
-        setNumeroMesa(numeroMesa);
-        setStatusMesa(statusMesa);
-        setCapacidadeMesa(capacidadeMesa);
+        this.numeroMesa = numeroMesa;
+        this.statusMesa = statusMesa;
+        this.capacidadeMesa = capacidadeMesa;
         this.numeroUso = 0;
     }
 

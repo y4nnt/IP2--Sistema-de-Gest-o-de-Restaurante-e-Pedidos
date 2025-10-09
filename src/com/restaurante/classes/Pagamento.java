@@ -13,7 +13,7 @@ public class Pagamento {
 
     public String pagarPedido(Pedido pedido) {
         if (pedido.calcularValorTotal() > 0) {
-            pedido.atualizarStatusPedido("Pago");
+            pedido.atualizarStatusPedido("Entregue");
             return String.format("Pagamento de R$ %.2f realizado com sucesso. Pedido atualizado para PAGO.",
                     pedido.calcularValorTotal());
         }

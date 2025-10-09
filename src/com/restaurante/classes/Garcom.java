@@ -6,7 +6,7 @@ import java.util.List;
 public class Garcom extends Usuario{
     private List<String> qualidadesGarcom;
 
-    Garcom(String nomeUsuario, String cpf, String email, String telefone) {
+    public Garcom(String nomeUsuario, String cpf, String email, String telefone) {
         super(nomeUsuario, cpf, email, telefone);
         this.qualidadesGarcom = new ArrayList<>();
     }
@@ -27,7 +27,7 @@ public class Garcom extends Usuario{
                 this.getClass()));
         sb.append("Habilidades: ");
         for (String habilidade : qualidadesGarcom) {
-            sb.append(String.format("-%s; ", habilidade));}
+            sb.append(String.format("%s; \n", habilidade));}
 
         return sb.toString();
     }

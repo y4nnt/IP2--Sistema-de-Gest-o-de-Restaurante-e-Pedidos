@@ -6,7 +6,7 @@ import java.util.List;
 public class Chef extends Usuario {
     private List<Produto> pratoEspecialidades;
 
-    Chef(String nomeUsuario, String cpf, String email, String telefone) {
+    public Chef(String nomeUsuario, String cpf, String email, String telefone) {
         super(nomeUsuario, cpf, email, telefone);
         this.pratoEspecialidades = new ArrayList<>();
     }
@@ -27,7 +27,7 @@ public class Chef extends Usuario {
                 this.getClass()));
         sb.append(String.format("Pratos de especialidades: "));
         for (Produto prato : pratoEspecialidades) {
-            sb.append(String.format("-%s; ", prato));}
+            sb.append(String.format("%s; ", prato));}
         return sb.toString();
     }
 }
