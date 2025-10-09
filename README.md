@@ -1,4 +1,4 @@
-git# IP2--Sistema-de-Gest-o-de-Restaurante-e-Pedidos
+# IP2--Sistema-de-Gest-o-de-Restaurante-e-Pedidos
 
 ## Descrição 
 Este sistema tem como objetivo gerenciar o atendimento em um restaurante, incluindo cadastro de clientes, mesas, cardápio e pedidos. Ele deve permitir que garçons registrem os pedidos realizados em cada mesa, vinculem itens do cardápio, acompanhem o status da preparação e registrem os pagamentos.
