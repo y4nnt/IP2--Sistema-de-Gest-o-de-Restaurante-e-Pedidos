@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
+
         // Criação de classes de usuário:
         Usuario garcom1 = new Garcom("Jefinho",
                 "123.456.789-00",
@@ -52,6 +53,7 @@ public class Main {
         mesaschin.addNumeroUso();
 
         // Criação do Cardapio geral:
+
         Cardapio cardapio = new Cardapio();
 
         // Criação dos produtos:
@@ -59,7 +61,7 @@ public class Main {
         Produto fileMignon = new Produto("Filé Mignon",
                 "Um gostoso filé",
                 56.99,
-                "Prato Principal",
+                CategoriaProduto.PRINCIPAL,
                 statusFileMignon,
                 "001");
 
@@ -67,7 +69,7 @@ public class Main {
         Produto sorvete = new Produto("Sorvete",
                 "Um sorvete geladinho",
                 5.99,
-                "Sobremesa",
+                CategoriaProduto.SOBREMESA,
                 statusSorvete,
                 "005");
 
@@ -75,7 +77,7 @@ public class Main {
         Produto cocaCola = new Produto("Coca-Cola",
                 "Coquinha geladinha",
                 9.99,
-                "Bebida",
+                CategoriaProduto.BEBIDA,
                 statusCocaCola,
                 "069");
 
