@@ -7,7 +7,7 @@ public class Cliente extends Usuario {
     private List<Pedido> pedidosPorCliente;
     private List<String> alergiasCliente;
 
-    Cliente(String nomeUsuario, String cpf, String email, String telefone) {
+    public Cliente(String nomeUsuario, String cpf, String email, String telefone) {
         super(nomeUsuario, cpf, email, telefone);
         this.pedidosPorCliente = new ArrayList<>();
         this.alergiasCliente = new ArrayList<>();
@@ -28,12 +28,15 @@ public class Cliente extends Usuario {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(super.toString());
-        sb.append(String.format("Tipo: %-20s \n",
-                this.getClass()));
-        sb.append("Alergias: ");
-        for (String alergia : alergiasCliente) {
-            sb.append(String.format("-%s; ", alergia));}
+        sb.append(super.toString()); // Mantém as informações da classe pai
+
+        // 1. Junte a lista de alergias em uma única String.
+        String alergiasFormatadas = String.join(", ", alergiasCliente);
+
+        // 2. Formate as linhas completas para garantir o alinhamento
+        sb.append(String.format("| %-15s | %-30s %n", "Tipo", "Cliente"));
+        sb.append(String.format("| %-15s | %-30s %n", "Alergias", alergiasFormatadas));
+
         return sb.toString();
     }
 

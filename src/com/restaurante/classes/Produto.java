@@ -4,17 +4,16 @@ public class Produto {
     private String nomeProduto;
     private String descricaoProduto;
     private double precoProduto;
-    private String categoriaProduto;
+    private CategoriaProduto categoriaProduto;
     private StatusProduto statusProduto;
     private int numeroVendas;
     private String codigoItem;
     private Chef chefProduto;
 
     // Depois, incluir try-catch em todos, evitando problemas futuros.
-    public Produto(String nomeProduto, String descricaoProduto, double precoProduto, String categoriaProduto, StatusProduto statusProduto, String codigoItem) {
+    public Produto(String nomeProduto, String descricaoProduto, double precoProduto, CategoriaProduto categoriaProduto, StatusProduto statusProduto, String codigoItem) {
         this.nomeProduto = nomeProduto;
         this.descricaoProduto = descricaoProduto;
-
         this.categoriaProduto = categoriaProduto;
         this.statusProduto = statusProduto;
         this.codigoItem = codigoItem;
@@ -56,11 +55,11 @@ public class Produto {
         this.precoProduto = precoProduto;
     }
 
-    public String getCategoriaProduto() {
+    public CategoriaProduto getCategoriaProduto() {
         return categoriaProduto;
     }
 
-    public void setCategoriaProduto(String categoriaProduto) {
+    public void setCategoriaProduto(CategoriaProduto categoriaProduto) {
         this.categoriaProduto = categoriaProduto;
     }
 

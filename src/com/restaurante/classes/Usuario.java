@@ -6,7 +6,7 @@ public abstract class Usuario {
     private String email;
     private String telefone;
 
-    Usuario(String nomeUsuario, String cpf, String email, String telefone) {
+    public Usuario(String nomeUsuario, String cpf, String email, String telefone) {
         this.nomeUsuario = nomeUsuario;
         this.cpf = cpf;
         this.email = email;
@@ -69,12 +69,15 @@ public abstract class Usuario {
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Usuário: %-20s | CPF: %-20s | Telefone: %-20s\n",
-                this.nomeUsuario,
-                this.cpf,
-                this.formatarTelefone()));
-        sb.append(String.format("Email: %-20s | ",
-                this.email));
+
+        // LINHA 1: Nome e CPF
+        sb.append(String.format("| %-15s | %-30s %n", "Usuário", this.nomeUsuario));
+        sb.append(String.format("| %-15s | %-30s %n", "CPF", this.cpf));
+
+        // LINHA 2: Contato
+        sb.append(String.format("| %-15s | %-30s %n", "Telefone", this.formatarTelefone()));
+        sb.append(String.format("| %-15s | %-30s %n", "Email", this.email));
+
         return sb.toString();
     }
 

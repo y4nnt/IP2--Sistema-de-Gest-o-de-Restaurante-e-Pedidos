@@ -10,7 +10,7 @@ public class Pedido {
     private Garcom garcomPedido;
     private Chef chefPedido;
     private List<ItemVenda> pedidoMesa;
-    private int statusPedido;
+    private StatusPedido statusPedido;
     private LocalDate dataPedido;
 
     public Pedido(ClienteMesa clienteMesa, Garcom garcom, Chef chef, LocalDate data) {
@@ -20,7 +20,7 @@ public class Pedido {
             this.chefPedido = chef;
             this.dataPedido = data;
             this.pedidoMesa = new ArrayList<>();
-            this.statusPedido = 0;
+            this.statusPedido = StatusPedido.EM_ANDAMENTO;
         } else {
             throw new IllegalArgumentException("O cliente da mesa não pode ser nulo para criar um pedido.");
         }
@@ -40,20 +40,8 @@ public class Pedido {
         return total;
     }
 
-    public void atualizarStatusPedido(String status) {
-        switch (status.toLowerCase()) {
-            case "em andamento":
-                this.statusPedido = 0;
-                break;
-            case "pronto":
-                this.statusPedido = 1;
-                break;
-            case "entregue":
-                this.statusPedido = 2;
-                break;
-            default:
-                throw new IllegalArgumentException("Status inválido: " + status);
-        }
+    public void atualizarStatusPedido(StatusPedido status) {
+        this.statusPedido  = status;
     }
 
     @Override
@@ -92,12 +80,16 @@ public class Pedido {
         this.dataPedido = dataPedido;
     }
 
-    public int getStatusPedido() {
+    public StatusPedido getStatusPedido() {
         return statusPedido;
     }
 
-    public void setStatusPedido(int statusPedido) {
+    public void setStatusPedido(StatusPedido statusPedido) {
         this.statusPedido = statusPedido;
+    }
+    //set via codigo
+    public void setStatusPedidoCodigo(int codigoStatusPedido) {
+        this.statusPedido = StatusPedido.fromCodigo(codigoStatusPedido);
     }
 
     public Garcom getGarcomPedido() {

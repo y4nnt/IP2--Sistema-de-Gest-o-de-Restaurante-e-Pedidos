@@ -6,7 +6,7 @@ import java.util.List;
 public class Garcom extends Usuario{
     private List<String> qualidadesGarcom;
 
-    Garcom(String nomeUsuario, String cpf, String email, String telefone) {
+    public Garcom(String nomeUsuario, String cpf, String email, String telefone) {
         super(nomeUsuario, cpf, email, telefone);
         this.qualidadesGarcom = new ArrayList<>();
     }
@@ -22,12 +22,16 @@ public class Garcom extends Usuario{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(super.toString());
-        sb.append(String.format("Tipo: %-20s \n",
-                this.getClass()));
-        sb.append("Habilidades: ");
-        for (String habilidade : qualidadesGarcom) {
-            sb.append(String.format("-%s; ", habilidade));}
+        sb.append(super.toString()); // Chama a versão corrigida da classe pai
+
+        // Junta todas as habilidades em uma única string, separadas por ", "
+        String habilidadesFormatadas = String.join(", ", qualidadesGarcom);
+
+        // LINHA 3: Tipo
+        sb.append(String.format("| %-15s | %-30s %n", "Tipo", "Garçom"));
+
+        // LINHA 4: Habilidades
+        sb.append(String.format("| %-15s | %-30s %n", "Habilidades", habilidadesFormatadas));
 
         return sb.toString();
     }
