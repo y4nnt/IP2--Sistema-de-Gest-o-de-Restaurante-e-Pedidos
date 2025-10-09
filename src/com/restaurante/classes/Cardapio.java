@@ -53,38 +53,38 @@ public class Cardapio {
 
         sb.append("Cardápio\n\n");
         sb.append("Entradas: \n");
-        for (Produto entrada : cardapioRestaurante) {
-            if (Objects.equals(cardapioRestaurante.get(buscarItem(entrada.getCodigoProduto())).getCategoriaProduto(), "Entrada")) {
+        for (Produto produto : this.cardapioRestaurante) {
+            if (produto.getCategoriaProduto() == CategoriaProduto.ENTRADA) {
                 sb.append(String.format("%-30s | Preço: %-30s\n",
-                        entrada,
-                        entrada.getPrecoProduto()));
+                        produto.getNomeProduto(),
+                        produto.getPrecoProduto()));
             }
         }
 
         sb.append("\nPratos principais: \n");
-        for (Produto prato : cardapioRestaurante) {
-            if (Objects.equals(cardapioRestaurante.get(buscarItem(prato.getCodigoProduto())).getCategoriaProduto(), "Prato Principal")) {
+        for (Produto produto : this.cardapioRestaurante) {
+            if (produto.getCategoriaProduto() == CategoriaProduto.PRINCIPAL) {
                 sb.append(String.format("%-30s | Preço: %-30s\n",
-                        prato,
-                        prato.getPrecoProduto()));
+                        produto.getNomeProduto(),
+                        produto.getPrecoProduto()));
             }
         }
 
         sb.append("\nSobremesas: \n");
-        for (Produto sobremesa : cardapioRestaurante) {
-            if (Objects.equals(cardapioRestaurante.get(buscarItem(sobremesa.getCodigoProduto())).getCategoriaProduto(), "Sobremesa")) {
+        for (Produto produto : this.cardapioRestaurante) {
+            if (produto.getCategoriaProduto() == CategoriaProduto.SOBREMESA) {
                 sb.append(String.format("%-30s | Preço: %-30s\n",
-                        sobremesa,
-                        sobremesa.getPrecoProduto()));
+                        produto.getNomeProduto(),
+                        produto.getPrecoProduto()));
             }
         }
 
         sb.append("\nBebidas: \n");
-        for (Produto bebida : cardapioRestaurante) {
-            if (Objects.equals(cardapioRestaurante.get(buscarItem(bebida.getCodigoProduto())).getCategoriaProduto(), "Bebida")) {
+        for (Produto produto : this.cardapioRestaurante) {
+            if (produto.getCategoriaProduto() == CategoriaProduto.BEBIDA) {
                 sb.append(String.format("%-30s | Preço: %-30s\n",
-                        bebida,
-                        bebida.getPrecoProduto()));
+                        produto.getNomeProduto(),
+                        produto.getPrecoProduto()));
             }
         }
 
