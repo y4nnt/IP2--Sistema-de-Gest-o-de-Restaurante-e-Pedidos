@@ -6,13 +6,13 @@ public class Main {
         Produto presunto = new Produto("Presunto",
                 "Alimento frio",
                 10.99,
-                "Frios",
+                CategoriaProduto.ENTRADA,
                 StatusProduto.DISPONIVEL,
                 "019");
         Produto queijo = new Produto("Queijo",
                 "Alimento frio",
                 17.99,
-                "Frios",
+                CategoriaProduto.ENTRADA,
                 StatusProduto.DISPONIVEL,
                 "020");
         ItemVenda presuntos = new ItemVenda(presunto, 10, "sem queijo");
