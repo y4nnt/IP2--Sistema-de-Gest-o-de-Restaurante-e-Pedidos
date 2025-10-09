@@ -67,7 +67,8 @@ https://github.com/y4nnt/IP2--Sistema-de-Gest-o-de-Restaurante-e-Pedidos
 * Nícolas Gabriel Nunes Marques - nicolas.gabriel@ufrpe.br - nicolasg22132@gmail.com
 
 ## Diagrama de classes
-![UML Sistema de Gestão de Restaurante e Pedidos](https://github.com/user-attachments/assets/52c3a349-cd82-4a32-9efe-c09edad7e8db)
+![UML Sistema de Gestão de Restaurante e Pedidos](https://github.com/user-attachments/assets/da306e92-547f-4956-a822-9dd51298425d)
 
 ### Documento Original
-[UML Sistema de Gestão de Restaurante e Pedidos.drawio.pdf](https://github.com/user-attachments/files/22787052/UML.Sistema.de.Gestao.de.Restaurante.e.Pedidos.drawio.pdf)
+[UML Sistema de Gestão de Restaurante e Pedidos.pdf](https://github.com/user-attachments/files/22801536/UML.Sistema.de.Gestao.de.Restaurante.e.Pedidos.drawio.pdf)
+
